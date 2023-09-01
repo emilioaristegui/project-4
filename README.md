@@ -16,3 +16,5 @@ slope - the slope of the peak exercise ST segment
 ca - number of major vessels (0-3) colored by flourosopy 
 thal - 3 = normal; 6 = fixed defect; 7 = reversable defect 
 target - have disease or not (1=yes, 0=no)
+
+activation: softmax because we're not using just binary but we're using also using integers

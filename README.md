@@ -4,7 +4,7 @@
 
 ## Introduction
 
-For this project, we will be evaluating the heart.csv obtained from Kaggle: https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset in order to traing a deep learning model to predict when a patient has a heart disease or not. This data set dates from 1988 and consists of four databases: Cleveland, Hungary, Switzerland, and Long Beach V. It contains 76 attributes, including the predicted attribute, but all published experiments refer to using a subset of 14 of them. The "target" field refers to the presence of heart disease in the patient. It is integer valued 0 = no disease and 1 = disease.
+For this project, we will be evaluating the heart.csv obtained from Kaggle: https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset in order to traing a deep learning model to predict when a patient has a heart disease or not with an accuracy of over 75%. This data set dates from 1988 and consists of four databases: Cleveland, Hungary, Switzerland, and Long Beach V. It contains 76 attributes, including the predicted attribute, but all published experiments refer to using a subset of 14 of them. The "target" field refers to the presence of heart disease in the patient. It is integer valued 0 = no disease and 1 = disease.
 
 
 ## Database & Variables 
@@ -51,11 +51,33 @@ Confusion matrix
 1. We split our data, designating y as the taget (If the person had a disease or not)
 2. We used the StandardScaler feaure
 
+<img width="721" alt="Captura de pantalla 2023-09-04 a la(s) 20 10 34" src="https://github.com/emilioaristegui/project-4/assets/128106993/a971e7d0-f0d9-481e-9ed9-c90657a6088a">
+
+
 # Compile, Train and Evaluate the Model
 As mentiones above, we used the deep learning method to train our model and get the best possible outcome.
 
 ## First attempt
 For the first attempt we used two layers on activation = relu and an output layer on tahn. We decided to use the loss and accuracy to evaluate our model.
 
+*Our results were*
 Loss: 1.4483760595321655, Accuracy: 0.43968871235847473
-activation: softmax because we're not using just binary but we're using also using integers
+
+## Second attempt
+Our first attempt had an accuracy of 43%. Since our goal is to have an accuracy of over 75%, we decided to add a third layer and chance the activation on the output layer, instead of using tahn we use softmax, because we're not using just binary data but we're using also using integers.
+
+*Our results were*
+Loss: 0.21685080230236053, Accuracy: 0.957198441028595
+
+## Third attempt
+Based on our confusion matrix, our most significant values where *Cp,thalach and slope* so we decided to drop the rest of the dataset and only use these three values as X
+
+<img width="580" alt="Captura de pantalla 2023-09-04 a la(s) 20 16 43" src="https://github.com/emilioaristegui/project-4/assets/128106993/0e1bf6c6-fe0c-4fc4-bf11-18fba1fa9795">
+
+Less noise would mean a better outcome, or so we though but we found that using the same model as the second attempt but only using the most significant values wouldn't get a higher accuracy than before
+
+*Our results were*
+Loss: 1.4483760595321655, Accuracy: 0.43968871235847473
+
+## Conclusion
+Eventhough we thought that decreasing the columns for our training model would mean a better outcome, in this scenario we discovered that having the whole dataset in our model was beneficial.

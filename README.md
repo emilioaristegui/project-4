@@ -4,9 +4,7 @@
 
 ## Introduction
 
-For this project, we will be evaluating the heart.csv obtained from Kaggle: https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset. This data set dates from 1988 and consists of four databases: Cleveland, Hungary, Switzerland, and Long Beach V. It contains 76 attributes, including the predicted attribute, but all published experiments refer to using a subset of 14 of them. The "target" field refers to the presence of heart disease in the patient. It is integer valued 0 = no disease and 1 = disease.
-
-We will use deep learning model to predict if a patient is most likely to get a heart disease or not
+For this project, we will be evaluating the heart.csv obtained from Kaggle: https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset in order to traing a deep learning model to predict when a patient has a heart disease or not. This data set dates from 1988 and consists of four databases: Cleveland, Hungary, Switzerland, and Long Beach V. It contains 76 attributes, including the predicted attribute, but all published experiments refer to using a subset of 14 of them. The "target" field refers to the presence of heart disease in the patient. It is integer valued 0 = no disease and 1 = disease.
 
 
 ## Database & Variables 
@@ -25,35 +23,28 @@ We will use deep learning model to predict if a patient is most likely to get a 
 - thal - 3 = normal; 6 = fixed defect; 7 = reversable defect 
 - target - have disease or not (1=yes, 0=no)
 
-+---+---+---+--------+----+---+-------+-------+-----+-------+-----+---+----+------+
-|age|sex| cp|trestbps|chol|fbs|restecg|thalach|exang|oldpeak|slope| ca|thal|target|
-+---+---+---+--------+----+---+-------+-------+-----+-------+-----+---+----+------+
-| 52|  1|  0|     125| 212|  0|      1|    168|    0|      1|    2|  2|   3|     0|
-| 53|  1|  0|     140| 203|  1|      0|    155|    1|    3.1|    0|  0|   3|     0|
-| 70|  1|  0|     145| 174|  0|      1|    125|    1|    2.6|    0|  0|   3|     0|
-| 61|  1|  0|     148| 203|  0|      1|    161|    0|      0|    2|  1|   3|     0|
-| 62|  0|  0|     138| 294|  1|      1|    106|    0|    1.9|    1|  3|   2|     0|
-| 58|  0|  0|     100| 248|  0|      0|    122|    0|      1|    1|  0|   2|     1|
-| 58|  1|  0|     114| 318|  0|      2|    140|    0|    4.4|    0|  3|   1|     0|
-| 55|  1|  0|     160| 289|  0|      0|    145|    1|    0.8|    1|  1|   3|     0|
-| 46|  1|  0|     120| 249|  0|      0|    144|    0|    0.8|    2|  0|   3|     0|
-| 54|  1|  0|     122| 286|  0|      0|    116|    1|    3.2|    1|  2|   2|     0|
-| 71|  0|  0|     112| 149|  0|      1|    125|    0|    1.6|    1|  0|   2|     1|
-| 43|  0|  0|     132| 341|  1|      0|    136|    1|      3|    1|  0|   3|     0|
-| 34|  0|  1|     118| 210|  0|      1|    192|    0|    0.7|    2|  0|   2|     1|
-| 51|  1|  0|     140| 298|  0|      1|    122|    1|    4.2|    1|  3|   3|     0|
-| 52|  1|  0|     128| 204|  1|      1|    156|    1|      1|    1|  0|   0|     0|
-| 34|  0|  1|     118| 210|  0|      1|    192|    0|    0.7|    2|  0|   2|     1|
-| 51|  0|  2|     140| 308|  0|      0|    142|    0|    1.5|    2|  1|   2|     1|
-| 54|  1|  0|     124| 266|  0|      0|    109|    1|    2.2|    1|  1|   3|     0|
-| 50|  0|  1|     120| 244|  0|      1|    162|    0|    1.1|    2|  0|   2|     1|
-| 58|  1|  2|     140| 211|  1|      0|    165|    0|      0|    2|  0|   2|     1|
-+---+---+---+--------+----+---+-------+-------+-----+-------+-----+---+----+------+
-only showing top 20 rows
+<img width="724" alt="Captura de pantalla 2023-09-04 a la(s) 19 56 31" src="https://github.com/emilioaristegui/project-4/assets/128106993/10d6767b-095a-4bb3-921a-817b9bd060bd">
+
 
 ## Data Exploration
 
-![Uploading image.png…]()
+Our dataset contains over 1,000 rows, for which we dive into the information that we had to have a better understanding of our results.
+
+In this grafic, we can see the amount of people on the dataset that has a heart disease vs the ones that doesn't
+<img width="579" alt="Captura de pantalla 2023-09-04 a la(s) 19 56 43" src="https://github.com/emilioaristegui/project-4/assets/128106993/810cd2c4-e9a6-411f-9bc7-8975dee5f959">
+
+We discovered that our study covers mainly men with almost 700 people. 
+Note: 0 is for woman, 1 is for man
+<img width="586" alt="Captura de pantalla 2023-09-04 a la(s) 19 56 53" src="https://github.com/emilioaristegui/project-4/assets/128106993/eda650a6-80c2-4205-af28-f221cc4354f3">
+
+A graph with resting blood pressure (in mm Hg on admission to the hospital) vs age
+<img width="1161" alt="Captura de pantalla 2023-09-04 a la(s) 19 57 07" src="https://github.com/emilioaristegui/project-4/assets/128106993/09901df6-527f-4baf-9e53-4521c2aec961">
+
+thalach - maximum heart rate achieved in the hospital per age
+<img width="1162" alt="Captura de pantalla 2023-09-04 a la(s) 19 57 16" src="https://github.com/emilioaristegui/project-4/assets/128106993/85ba47cd-4523-4a2a-924a-83002d52d56b">
+
+Confusion matrix
+<img width="1328" alt="Captura de pantalla 2023-09-04 a la(s) 19 57 29" src="https://github.com/emilioaristegui/project-4/assets/128106993/fc022d8b-3fc2-4b94-abcc-eb653d6ec6ee">
 
 ## Model training
 

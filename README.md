@@ -6,6 +6,9 @@
 
 For this project, we will be evaluating the heart.csv obtained from Kaggle: https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset in order to traing a deep learning model to predict when a patient has a heart disease or not with an accuracy of over 75%. This data set dates from 1988 and consists of four databases: Cleveland, Hungary, Switzerland, and Long Beach V. It contains 76 attributes, including the predicted attribute, but all published experiments refer to using a subset of 14 of them. The "target" field refers to the presence of heart disease in the patient. It is integer valued 0 = no disease and 1 = disease.
 
+## Our problem
+Healthcare industry: We sought to identify heart disease on time for proper treatment by using Machine Learning techniques.
+Train an algorithm to recognize disease symptoms and predict if a patient is at risk.
 
 ## Database & Variables 
 - age - age in years 
